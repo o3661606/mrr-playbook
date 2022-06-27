@@ -8,9 +8,9 @@ with mrr as (
 joined as (
 
     select
-        dateadd(month, 1, date_month)::date as date_month,
+        date_add(date_month, interval 1 month) as date_month,
         customer_id,
-        0::float as mrr,
+        cast(0 as float64) as mrr,
         false as is_active,
         first_active_month,
         last_active_month,
@@ -18,9 +18,7 @@ joined as (
         false as is_last_month
 
     from mrr
-
-    where is_last_month
-
+    where is_last_month = true
 )
 
 select * from joined

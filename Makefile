@@ -1,5 +1,5 @@
 do-everything:
-	dbt compile --target snowflake
-	dbt seed --target snowflake --full-refresh
-	dbt run --target snowflake --full-refresh
-	dbt test --target snowflake
+	dbt compile --target bigquery
+	dbt seed --target bigquery --full-refresh
+	dbt run --target bigquery --full-refresh
+	dbt test --target bigquery
